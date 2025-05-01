@@ -1,0 +1,235 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container {
+  width: 100%;
+}
+
+/* start header */
+.container header {
+  text-transform: uppercase;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.container header.main_header h1 {
+  text-decoration: underline;
+}
+
+/* end header */
+/* start nav */
+
+.container > nav {
+  width: 100%;
+}
+
+.container > nav ul {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: 1fr;
+  gap: clamp(10px, 5vw, 50px);
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.container > nav ul li a {
+  text-transform: uppercase;
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  color: #363636;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: #5a5a5a;
+  }
+  &:focus {
+    color: #5a5a5a;
+  }
+}
+
+/* end nav */
+/* start main */
+/* start main-content */
+
+.container main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.container main .main_content {
+  grid-column: 2/6;
+}
+@media (max-width: 1232px) {
+  .container main .main_content {
+    grid-column: 2/11;
+  }
+}
+.container main .main_content .content_area article {
+  position: relative;
+  background-color: #c7c7c77a;
+  width: clamp(290px, 50vw, 500px);
+  height: fit-content;
+  padding: clamp(5px, 50vw, 15px);
+}
+
+.container main .main_content .content_area > h1 {
+  padding: 0.5em 0;
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  width: clamp(290px, 50vw, 500px);
+  background-color: #eeeeeeee;
+}
+
+.container main .main_content .content_area p {
+  padding: 5px;
+  font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.container main .main_content .content_area .social_links {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 20px 25px;
+}
+
+.container main .main_content .content_area .social_links li a {
+  color: #363636;
+}
+
+.container main .main_content .content_area .settings-btn {
+  position: absolute;
+  top: 1rem;
+  right: -0.5rem;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #363636;
+  color: #fff;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #fff;
+    color: #363636;
+  }
+  cursor: pointer;
+  z-index: 2;
+}
+/* done! here */
+
+.container main .main_content .settings-panel {
+  position: absolute;
+  top: 1.6rem;
+  right: 0.2rem;
+  background-color: #363636;
+  width: clamp(100px, 50%, 200px);
+  border-radius: 15px;
+  padding: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+
+  transition: all 0.3s ease-in-out;
+}
+.container main .main_content .active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.container main .main_content .settings-panel h1 {
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+}
+
+.container main .main_content .settings-panel .settings-options h3 {
+  font-size: clamp(0.6rem, 4vw, 1.5rem);
+  color: #bebebe;
+  margin: 15px 0 0;
+}
+
+.container main .main_content .settings-panel .settings-options ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.container
+  main
+  .main_content
+  .settings-panel
+  .settings-options
+  .choose_tag
+  ul
+  li {
+  width: 70px;
+  height: fit-content;
+  border-radius: 15px;
+  display: grid;
+  padding: 5px 15px;
+  place-items: center;
+  margin: 0;
+  background-color: #5a5a5a;
+  color: #fff;
+  font-weight: 700;
+  &:hover {
+    background-color: #fff;
+    color: #363636;
+    font-weight: 400;
+  }
+}
+.container
+  main
+  .main_content
+  .settings-panel
+  .settings-options
+  .choose_tag
+  ul
+  li.active {
+  background-color: #fff;
+  color: #363636;
+  font-weight: 400;
+}
+
+.container main .main_content .settings-panel .settings-options ul li {
+  margin: 3px 0;
+  padding: 0.3em;
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.1s ease-in-out;
+  width: clamp(12px, 6vw, 20px);
+  height: clamp(12px, 6vw, 20px);
+  border: solid 1px #fff;
+}
+
+.container main .main_content .settings-panel .settings-options .default-label {
+  background-color: #fff;
+  color: #363636;
+  border: none;
+  padding: 0.3em 0.5em;
+  margin: 1rem 0 0;
+  font-size: clamp(0.3em, 3vw, 1em);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #5a5a5a;
+    color: #fff;
+  }
+}
