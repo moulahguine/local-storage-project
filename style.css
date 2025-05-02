@@ -123,6 +123,7 @@ body {
   &:hover {
     background-color: #fff;
     color: #363636;
+    border: solid #363636 1px;
   }
   cursor: pointer;
   z-index: 2;
