@@ -1,5 +1,22 @@
 "use strict";
 
+/**
+ * Dynamic Tag Styler with localStorage
+ *
+ * This script allows users to select HTML tags (e.g., title, text)
+ * and change their font color using a settings panel UI.
+ *
+ * Features:
+ * - Toggle settings panel visibility
+ * - Select a tag (like <h1> or <p>) to style
+ * - Pick a color to apply to the selected tag
+ * - Save selected tag and color in localStorage
+ * - Automatically restore saved styles on page reload
+ *
+ * Clean variable naming and modular functions for readability and maintainability.
+ * Suitable for learning DOM interaction, event handling, and persistent state.
+ */
+
 // Get settings button and panel
 const toggleSettingsButton = document.querySelector(".settings-btn");
 const settingsMenu = document.querySelector(".settings-panel");
@@ -65,7 +82,7 @@ function saveColorForSelectedTag(color) {
   }
 }
 
-// Fix 1: Restore saved tag AND update UI
+// Restore saved tag AND update UI
 function loadSavedTag() {
   const savedTag = localStorage.getItem("tag");
   if (savedTag && elements[savedTag]) {
@@ -89,3 +106,20 @@ function applySavedColors() {
     }
   }
 }
+
+const defaultBtn = document.querySelector("#default-label");
+
+defaultBtn.addEventListener("click", () => {
+  // Clear localStorage
+  localStorage.clear();
+
+  // Reset styles to default
+  for (let tag in elements) {
+    if (elements[tag]) {
+      elements[tag].style.color = "";
+    }
+  }
+
+  // remove active classes from selected UI
+  [...tagOptionItems].forEach((item) => item.classList.remove("active"));
+});
