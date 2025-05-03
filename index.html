@@ -27,6 +27,7 @@
     />
   </head>
   <body>
+    <!--To explain what localStorage is and allow users to customize the look of the page.-->
     <div class="container">
       <!-- start header -->
       <header class="main_header">
@@ -60,17 +61,6 @@
       <!-- end nav -->
       <!-- start main -->
       <main>
-        <!-- Main Content Area:
-
-          - <section class="content_area"> contains the main information about localStorage, including a title, 
-            description paragraph, and social media links (LinkedIn, YouTube, GitHub).
-  
-          - <aside class="settings-panel"> provides user settings for changing text color and font size.
-
-        Purpose: 
-        To explain what localStorage is and allow users to customize the look of the page.
-        -->
-
         <div class="main_content">
           <!-- content -->
           <section class="content_area">
@@ -117,32 +107,79 @@
                   <div class="choose_tag">
                     <h3>select tag:</h3>
                     <ul>
-                     <li>title</li>
-                     <li>text</li>
+                      <li>title</li>
+                      <li>text</li>
                     </ul>
                   </div>
                   <div class="font_color">
                     <h3>select color:</h3>
                     <ul>
-                     <li data-color="#d32243" style="background-color: #d32243;"></li>
-                     <li data-color="#22d399" style="background-color: #22d399;"></li>
-                     <li data-color="#222cd3" style="background-color: #222cd3;"></li>
-                     <li data-color="#d32f22" style="background-color: #d32f22;"></li>
-                     <li data-color="#6a0dad" style="background-color: #6a0dad;"></li>
-                     <li data-color="#f4a261" style="background-color: #f4a261;"></li>
-                     <li data-color="#2a9d8f" style="background-color: #2a9d8f;"></li>
-                     <li data-color="#e76f51" style="background-color: #e76f51;"></li>
-                     <li data-color="#264653" style="background-color: #264653;"></li>
-                     <li data-color="#8d99ae" style="background-color: #8d99ae;"></li>
-                     <li data-color="#00b4d8" style="background-color: #00b4d8;"></li>
-                     <li data-color="#ffb703" style="background-color: #ffb703;"></li>
-                     <li data-color="#fb8500" style="background-color: #fb8500;"></li>
-                     <li data-color="#6b9080" style="background-color: #6b9080;"></li>
-                     <li data-color="#8338ec" style="background-color: #8338ec;"></li>
+                      <li
+                        data-color="#d32243"
+                        style="background-color: #d32243"
+                      ></li>
+                      <li
+                        data-color="#22d399"
+                        style="background-color: #22d399"
+                      ></li>
+                      <li
+                        data-color="#222cd3"
+                        style="background-color: #222cd3"
+                      ></li>
+                      <li
+                        data-color="#d32f22"
+                        style="background-color: #d32f22"
+                      ></li>
+                      <li
+                        data-color="#6a0dad"
+                        style="background-color: #6a0dad"
+                      ></li>
+                      <li
+                        data-color="#f4a261"
+                        style="background-color: #f4a261"
+                      ></li>
+                      <li
+                        data-color="#2a9d8f"
+                        style="background-color: #2a9d8f"
+                      ></li>
+                      <li
+                        data-color="#e76f51"
+                        style="background-color: #e76f51"
+                      ></li>
+                      <li
+                        data-color="#264653"
+                        style="background-color: #264653"
+                      ></li>
+                      <li
+                        data-color="#8d99ae"
+                        style="background-color: #8d99ae"
+                      ></li>
+                      <li
+                        data-color="#00b4d8"
+                        style="background-color: #00b4d8"
+                      ></li>
+                      <li
+                        data-color="#ffb703"
+                        style="background-color: #ffb703"
+                      ></li>
+                      <li
+                        data-color="#fb8500"
+                        style="background-color: #fb8500"
+                      ></li>
+                      <li
+                        data-color="#6b9080"
+                        style="background-color: #6b9080"
+                      ></li>
+                      <li
+                        data-color="#8338ec"
+                        style="background-color: #8338ec"
+                      ></li>
                     </ul>
                   </div>
-                  
-                  <button id="default-label"><i class="fa-solid fa-trash-can-arrow-up"></i></button>
+
+                  <button id="default-label">
+                    <i class="fa-solid fa-trash-can-arrow-up"></i>
+                  </button>
                 </div>
               </aside>
             </article>
@@ -150,22 +187,22 @@
           </section>
         </div>
         <!-- end -->
-
-        <!-- <div class="to_do_list">
-          <div class="box_input">
-            <input
-              class="text_input"
-              type="text"
-              placeholder="type in your todo to add 🤔"
-            />
-            <button class="add_btn"><i class="fa-solid fa-plus"></i></button>
-            <button class="clearAll_btn">
-              <i class="fa-solid fa-broom"></i>
-            </button>
+        <!-- start to do app -->
+        <div class="container_todoApp">
+          <div class="todoApp">
+            <form>
+              <div class="inputs">
+                <input type="text" placeholder="title..." class="input_title" />
+                <input type="text" placeholder="about..." class="input_about" />
+              </div>
+              <button class="btnAddTask">+</button>
+            </form>
+            <div class="listTasks">
+              <p class="zeroTask">no tasks🥲</p>
+            </div>
           </div>
-          <div class="box_list"></div>
         </div>
-      </main> -->
+      </main>
       <!-- end main -->
     </div>
     <script src="script.js"></script>

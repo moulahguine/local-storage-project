@@ -123,3 +123,90 @@ defaultBtn.addEventListener("click", () => {
   // remove active classes from selected UI
   [...tagOptionItems].forEach((item) => item.classList.remove("active"));
 });
+
+// to do list app
+
+const inputs = {
+  title: document.querySelector(" .todoApp form .inputs .input_title"),
+  about: document.querySelector(" .todoApp form .inputs .input_about"),
+};
+
+const btnAddTask = document.querySelector(".todoApp form .btnAddTask");
+
+const arrOfTasks = [];
+
+function showTasks() {
+  if (inputs.title.value !== "" && inputs.about.value !== "") {
+    addTaskToArr(inputs.title.value, inputs.about.value);
+    inputs.title.value = "";
+    inputs.about.value = "";
+  }
+}
+
+btnAddTask.addEventListener("click", function (e) {
+  e.preventDefault();
+  showTasks();
+});
+
+function addTaskToArr(title, about) {
+  const titleData = {
+    id: Date.now(),
+    title: title,
+    about: about,
+    completed: false,
+  };
+  arrOfTasks.push(titleData);
+  addTasksToBox(arrOfTasks);
+}
+
+console.log(arrOfTasks);
+
+const boxHasList = document.querySelector(".todoApp .listTasks");
+function addTasksToBox(tasks) {
+  boxHasList.innerHTML = "";
+  tasks.forEach((task, i) => {
+    const mainContainer_task = document.createElement("div");
+    const container_task = document.createElement("main");
+    const content_task = document.createElement("div");
+    const title_task = document.createElement("h1");
+    const about_task = document.createElement("p");
+    const remove_task = document.createElement("button");
+    const btn_bottom = document.createElement("div");
+    const edit_task = document.createElement("button");
+    const share_task = document.createElement("button");
+
+    mainContainer_task.className = `task num_${i + 1}`;
+    mainContainer_task.id = task.id;
+    container_task.className = "container";
+    content_task.className = "content";
+    remove_task.className = "removeTaskBtn";
+    btn_bottom.className = "options";
+    edit_task.classList = "editTask";
+    share_task.classList = "shareTask";
+
+    title_task.innerHTML = task.title;
+    about_task.innerHTML = task.about;
+    remove_task.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+    edit_task.innerHTML = `<i class="fa-solid fa-pen"></i>`;
+    share_task.innerHTML = `<i class="fa-solid fa-share-nodes"></i>`;
+
+    boxHasList.appendChild(mainContainer_task);
+    mainContainer_task.appendChild(container_task);
+    container_task.appendChild(content_task);
+    content_task.appendChild(title_task);
+    content_task.appendChild(about_task);
+    container_task.appendChild(remove_task);
+    mainContainer_task.appendChild(btn_bottom);
+    btn_bottom.appendChild(edit_task);
+    btn_bottom.appendChild(share_task);
+    content_task.addEventListener("click", () => {
+      document
+        .querySelectorAll(".todoApp .listTasks .options")
+        .forEach((option) => {
+          option.classList.remove("active");
+        });
+
+      btn_bottom.classList.add("active");
+    });
+  });
+}
